@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html> 
+<html>
+ 
+   <head> 
+      
+      <title>FLLOYDS</title> 
+    
+  
+   
+   </head>
+	
+   <body> 
+       
+                <input type="file" id="myFile" >
+                <hr>
+                <textarea style="width:500px;height: 400px" id="output"></textarea>
+      
+
+                        <script>
+                                //debugger;
+                                        var input = document.getElementById("myFile");
+                                        var output = document.getElementById("output");
+                                        
+                                        
+                                        input.addEventListener("change", function () {
+                                                //debugger;
+                                          if (this.files && this.files[0]) {
+                                            var myFile = this.files[0];
+                                            var reader = new FileReader();
+                                            
+                                            reader.addEventListener('load', function (e) {
+                                               // debugger;
+                                                var matrix=[];
+                                              output.textContent = e.target.result;
+                                              var a = output.textContent; 
+                                              var x= a.split("\n");
+
+                                               for(var i=0; i < x.length;i++){
+                                                 
+                                                   let array=x[i].split(' ');
+                                                   matrix.push(array);
+                                                }
+                                                document.write("the entered matrix is"+"<br>"+"<br>"+"<br>");
+            
+                                                 print();
+                                                
+                                           
+                                                    for(let k=0;k<x.length;k++)
+                                                        {
+                                                         for(let i=0;i<x.length;i++)
+                                                          {
+                                                            for(let j=0;j<x.length;j++)
+                                                            {
+                                                            matrix[i][j]=Math.min(parseInt(matrix[i][j]),parseInt(matrix[i][k])+parseInt(matrix[k][j]));
+                                                            }
+                                                          }
+                                                        }console.log(matrix);
+
+                                                        document.write("<br>"+"<br>"+"final matrix is <br>"+"<br>"+"<br>");
+                                            print();
+
+                                            
+                                            function print()  //to print matrics
+                                                         {for(let i=0;i<x.length;i++)
+                                                            {for(let j=0;j<x.length;j++)
+                                                               {document.write(matrix[i][j]+" ");}
+                                                    document.write("<br>");}       
+                                                          }
+                                            });
+                                            
+                                            reader.readAsBinaryString(myFile);
+                                          } 
+                                        });
+
+
+                                     
+
+                                            </script>
+                                      
+                    </body>
+	
+</html>
+

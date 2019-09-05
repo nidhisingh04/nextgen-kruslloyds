@@ -1,0 +1,118 @@
+
+
+<!DOCTYPE html> 
+<html>
+ 
+   <head> 
+      
+      <title>KRUSKALS</title> 
+    
+  
+   
+   </head>
+	
+   <body> 
+                <input type="file" id="myFile">
+                <hr>
+                <textarea style="width:500px;height: 400px" id="output"></textarea>
+      
+
+                        <script>
+                                //debugger;
+                                        var input = document.getElementById("myFile");
+                                        var output = document.getElementById("output");
+                                        
+                                        
+                                        input.addEventListener("change", function () {
+                                                //debugger;
+                                          if (this.files && this.files[0]) {
+                                            var myFile = this.files[0];
+                                            var reader = new FileReader();
+                                            
+                                            reader.addEventListener('load', function (e) {
+                                               // debugger;
+                                                var matrix=[];
+                                              output.textContent = e.target.result;
+                                              var a = output.textContent; 
+                                              var x= a.split("\n");
+                                               for(var i=0; i < x.length;i++)
+                                               
+                                               {
+                                                 
+                                                   let array=x[i].split(' ');
+                                                   matrix.push(array);
+                                                }
+                                                
+                                               
+                                           console.log(matrix);
+
+                                               string_to_integer(matrix);
+                                               document.write("the entered matrix is"+"<br>"+"<br>"+"<br>");
+                                               print();
+                                               document.write("<br>"+"<br>"+"<br>");
+                                                KRUSKAL(matrix);
+                                             
+                                    function KRUSKAL(matrix)
+                                    {                
+                                           var ne=1,min;
+                                            var a=0,b=0,u=0,v=0;
+                                            var n=matrix.length;
+                                              while(ne<n)
+                                              {
+                                                  min=999;
+                                                 for(let i=0;i<n;i++)
+                                                 {
+                                                   for(let j=0;j<n;j++)
+                                                   {
+                                                       if(min>matrix[i][j])
+                                                       {
+                                                           min=matrix[i][j];
+                                                                a=u=i;
+                                                                b=v=j;
+                                                       }
+                                                    }
+                                                }//a=a+1;
+                                                 //b=b+1;
+
+                                                      if(u!=v) 
+                                                      {
+                                                        document.write((ne)+")min edge is");
+                                                        document.write("("+(a+1)+","+(b+1)+") and cost is"+min+"<br>");
+                                                       // mincost+=min;
+                                                        ne++;
+                                                        }
+                                                        matrix[a][b]=matrix[b][a]=999;
+                                           
+                                                }
+                                           // return mincost;
+                                     }
+
+                                                    function print()  //to print matrics
+                                                         {for(let i=0;i<x.length;i++)
+                                                            {for(let j=0;j<x.length;j++)
+                                                               {document.write(matrix[i][j]+" ");}
+                                                    document.write("<br>");}       
+                                                          }
+
+
+                                                function string_to_integer(matrix)//funtction to change string to integer
+                                                        { for(let i=0;i<x.length;i++)
+                                                             {for(let j=0;j<x.length;j++)
+                                                               {matrix[i][j]=parseInt(matrix[i][j]);}
+                                                             }
+                                                        }
+                                            });
+                                            
+                                            reader.readAsBinaryString(myFile);
+                                          } 
+                                        });
+
+
+                                     
+
+                                            </script>
+                                      
+                    </body>
+	
+</html>
+
