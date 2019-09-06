@@ -14,7 +14,7 @@
    <body> 
                 <input type="file" id="myFile">
                 <hr>
-                <textarea style="width:500px;height: 400px" id="output"></textarea>
+               <!-- <textarea style="width:500px;height: 400px" id="output"></textarea>-->
       
 
                         <script>
@@ -32,8 +32,8 @@
                                             reader.addEventListener('load', function (e) {
                                                // debugger;
                                                 var matrix=[];
-                                              output.textContent = e.target.result;
-                                              var a = output.textContent; 
+                                              input.textContent = e.target.result;
+                                              var a = input.textContent; 
                                               var x= a.split("\n");
                                                for(var i=0; i < x.length;i++)
                                                
