@@ -53,7 +53,7 @@
                                                 KRUSKAL(matrix);
                                              
                                     function KRUSKAL(matrix)
-                                    {                
+                                    {        var mincost=0;        
                                            var ne=1,min;
                                             var a=0,b=0,u=0,v=0;
                                             var n=matrix.length;
@@ -78,13 +78,13 @@
                                                       {
                                                         document.write((ne)+")min edge is");
                                                         document.write("("+(a+1)+","+(b+1)+") and cost is"+min+"<br>");
-                                                       // mincost+=min;
+                                                        mincost+=min;
                                                         ne++;
                                                         }
                                                         matrix[a][b]=matrix[b][a]=999;
                                            
                                                 }
-                                           // return mincost;
+                                          document.write("<br>"+"<br>"+"mincost of the graph is"+mincost);
                                      }
 
                                                     function print()  //to print matrics
