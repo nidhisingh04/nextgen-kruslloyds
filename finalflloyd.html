@@ -15,13 +15,13 @@
        
                 <input type="file" id="myFile" >
                 <hr>
-                <textarea style="width:500px;height: 400px" id="output"></textarea>
+               <!-- <textarea style="width:500px;height: 400px" id="output"></textarea>-->
       
 
                         <script>
                                 //debugger;
                                         var input = document.getElementById("myFile");
-                                        var output = document.getElementById("output");
+                                     //   var output = document.getElementById("output");
                                         
                                         
                                         input.addEventListener("change", function () {
@@ -33,8 +33,8 @@
                                             reader.addEventListener('load', function (e) {
                                                // debugger;
                                                 var matrix=[];
-                                              output.textContent = e.target.result;
-                                              var a = output.textContent; 
+                                             input.textContent = e.target.result;
+                                              var a =input.textContent; 
                                               var x= a.split("\n");
 
                                                for(var i=0; i < x.length;i++){
@@ -45,8 +45,9 @@
                                                 document.write("the entered matrix is"+"<br>"+"<br>"+"<br>");
             
                                                  print();
-                                                
-                                           
+                                                flloyds(matrix);
+                                           function flloyds(matrix)// flloyds algo
+                                           {
                                                     for(let k=0;k<x.length;k++)
                                                         {
                                                          for(let i=0;i<x.length;i++)
@@ -56,9 +57,10 @@
                                                             matrix[i][j]=Math.min(parseInt(matrix[i][j]),parseInt(matrix[i][k])+parseInt(matrix[k][j]));
                                                             }
                                                           }
-                                                        }console.log(matrix);
-
-                                                        document.write("<br>"+"<br>"+"final matrix is <br>"+"<br>"+"<br>");
+                                                        }
+                                           }console.log(matrix);
+                                                 
+                                                        document.write("<br>"+"<br>"+" All pair shortest path is <br>"+"<br>"+"<br>");
                                             print();
 
                                             
