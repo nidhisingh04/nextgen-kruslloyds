@@ -25,7 +25,7 @@
                                         
                                         input.addEventListener("change", function () {
                                                 //debugger;
-                                          if (this.files && this.files[0]) {
+                                          if (this.files && this.files[0]) {// checking file is not empty
                                             var myFile = this.files[0];
                                             var reader = new FileReader();
                                             
@@ -34,18 +34,18 @@
                                                 var matrix=[];
                                               input.textContent = e.target.result;
                                               var a = input.textContent; 
-                                              var x= a.split("\n");
+                                              var x= a.split("\n"); // splitting array where ever the next line is found
                                                for(var i=0; i < x.length;i++)
                                                
                                                {
                                                  
-                                                   let array=x[i].split(' ');
-                                                   matrix.push(array);
+                                                   let array=x[i].split(' '); // spliting array where ever space is found 
+                                                   matrix.push(array);// 2-d array is created with string value
                                                 }
                                                 
                                                
                                            console.log(matrix);
-
+                                             //debugger
                                                string_to_integer(matrix);
                                                document.write("the entered matrix is"+"<br>"+"<br>"+"<br>");
                                                print();
@@ -73,18 +73,18 @@
                                                     }
                                                 }//a=a+1;
                                                  //b=b+1;
-
+                                               // debugger
                                                       if(u!=v) 
                                                       {
                                                         document.write((ne)+")min edge is");
-                                                        document.write("("+(a+1)+","+(b+1)+") and cost is"+min+"<br>");
+                                                        document.write("("+(a+1)+","+(b+1)+") and cost is"+min+"<br>");//prints edge with mincost
                                                         mincost+=min;
                                                         ne++;
                                                         }
                                                         matrix[a][b]=matrix[b][a]=999;
                                            
                                                 }
-                                          document.write("<br>"+"<br>"+"mincost of the graph is"+mincost);
+                                          document.write("<br>"+"<br>"+"mincost of the graph is"+mincost);// prints total mincost
                                      }
 
                                                     function print()  //to print matrics
